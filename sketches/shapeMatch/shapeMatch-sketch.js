@@ -1,11 +1,16 @@
+var landscape;
+
 function setup() {
-  createCanvas(800, 550);
+  createCanvas(windowWidth, windowHeight);
+  background(100);
+
 }
 
 function draw() {
-  buildBackground();
+  imageMode(CENTER);
+  image(landscape, width, height);
 }
 
-function buildBackground(){
-  background(0, 255, 0);
-}
+function preload(){
+  landscape = loadImage('assets/gameBackground1.png');
+  
