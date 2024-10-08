@@ -3,6 +3,8 @@ var landscape;
 function setup() {
  createCanvas(windowWidth, windowHeight);
  background(100);
+
+ button.mousePressed(goToShapeMatch);
 }
 
 function draw() {
@@ -13,4 +15,9 @@ function draw() {
 
 function buildBackground(){
  landscape = loadImage('background.png');
+}
+
+function goToShapeMatch() {
+  // Redirect to shapeMatch.html page
+  window.location.href = 'shapeMatch.html';
 }
