@@ -19,7 +19,7 @@ function draw() {
   // Check if the image is loaded before trying to display it
   if (landscape) {
     imageMode(CENTER);
-    image(landscape, width / 2, height / 2);
+    image(landscape, width, height;
   } else {
     console.log('Image not loaded');
   }
