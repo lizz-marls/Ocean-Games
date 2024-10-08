@@ -28,7 +28,7 @@ function draw() {
   // Check if the image is loaded before trying to display it
   if (landscape) {
     imageMode(CORNER);
-    image(landscape, , 5, 5, w, h);
+    image(landscape, 5, 5, w, h);
   } else {
     console.log('Image not loaded');
   }
