@@ -4,6 +4,9 @@ function setup() {
  createCanvas(windowWidth, windowHeight);
  background(100);
 
+ button = createButton('Go to Shape Match');
+  button.position(150, 200);
+
  button.mousePressed(goToShapeMatch);
 }
 
