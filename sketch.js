@@ -13,7 +13,7 @@ function draw() {
 }
 
 function buildBackground(){
- landscape = loadImage('background.png');
+ landscape = loadImage('assets/background.png');
 }
 
 
