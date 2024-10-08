@@ -1,6 +1,6 @@
 var landscape;
-var w = width-25;
-var h = height -25;
+var w = width;
+var h = height;
 
 function preload() {
   // Preload the image to ensure it's fully loaded before using it
@@ -32,7 +32,7 @@ function draw() {
 function buildButton(x, y, htmlLocation){
   let button = createButton('');  // Empty label for the button
   button.position(x, y);          // Set the button's position
-  button.size(250, 250);            // Set the size of the button (e.g., 50x50 pixels)
+  button.size(150, 150);            // Set the size of the button (e.g., 50x50 pixels)
   
   // Apply CSS to make the button invisible
   button.style('background-color', 'black');
