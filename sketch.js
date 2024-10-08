@@ -2,7 +2,7 @@ var landscape;
 
 function preload() {
   // Preload the image to ensure it's fully loaded before using it
-  landscape = loadImage("/assets/background.png");
+  landscape = loadImage("assets/background.png");
 }
 
 function setup() {
