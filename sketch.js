@@ -9,10 +9,12 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(100);
 
-  // Create the button and set up the redirect
-  button = createButton('Go to Shape Match');
-  button.position(150, 200);
-  button.mousePressed(goToShapeMatch);
+  //create buttons below for each screen
+  buildButton(100, 100, "sketches/colorMix/colorMix.html");
+  buildButton(100, 200, "sketches/maze/maze.html");
+  buildButton(100, 300, "sketches/bubblePop/bubblePop.html");
+  buildButton(100, 400, "sketches/shapeMatch/shapeMatch.html");
+  buildButton(100, 500, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
@@ -25,7 +27,19 @@ function draw() {
   }
 }
 
-function goToShapeMatch() {
-  // Redirect to shapeMatch.html page
-  window.location.href = 'sketches/shapeMatch/shapeMatch.html';
+function buildButton(x, y, htmlLocation){
+  let button = createButton('');  // Empty label for the button
+  button.position(x, y);          // Set the button's position
+  button.size(50, 50);            // Set the size of the button (e.g., 50x50 pixels)
+  
+  // Apply CSS to make the button invisible
+  button.style('background-color', 'black');
+  button.style('border', 'black');
+  button.style('border-radius', '50%'); 
+  
+  // Redirect to the provided URL on click
+  button.mousePressed(() => {
+    window.location.href = htmlLocation;
+    
+  });
 }
