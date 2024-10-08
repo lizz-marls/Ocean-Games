@@ -27,5 +27,5 @@ function draw() {
 
 function goToShapeMatch() {
   // Redirect to shapeMatch.html page
-  window.location.href = 'shapeMatch.html';
+  window.location.href = 'sketches/shapeMatch/shapeMatch.html';
 }
