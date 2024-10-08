@@ -10,18 +10,18 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  w = width;
-  h = height;
+  w = width-10;
+  h = height-10;
   
   background(100);
   
 
   //create buttons below for each screen
-  buildButton(w*1.2, h*.5, "sketches/colorMix/colorMix.html");
-  buildButton(w*1.4, h*.6, "sketches/maze/maze.html");
-  buildButton(w*1.6, h*.65, "sketches/bubblePop/bubblePop.html");
-  buildButton(w*1.8, h*.5, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(w*2, h*.5, "sketches/animalSounds/animalSounds.html");
+  buildButton(w*2, h*.35, "sketches/colorMix/colorMix.html");
+  buildButton(w*4, h*.4, "sketches/maze/maze.html");
+  buildButton(w*6, h*.4, "sketches/bubblePop/bubblePop.html");
+  buildButton(w*8, h*.45, "sketches/shapeMatch/shapeMatch.html");
+  buildButton(w, h*.45, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
