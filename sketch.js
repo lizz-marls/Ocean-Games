@@ -1,6 +1,6 @@
 var landscape;
-var w = width;
-var h = height;
+var w;
+var h;
 
 function preload() {
   // Preload the image to ensure it's fully loaded before using it
@@ -9,14 +9,19 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  w = width;
+  h = height;
+  
   background(100);
+  
 
   //create buttons below for each screen
   buildButton(w*1.2, h*.5, "sketches/colorMix/colorMix.html");
   buildButton(w*1.4, h*.6, "sketches/maze/maze.html");
   buildButton(w*1.6, h*.65, "sketches/bubblePop/bubblePop.html");
   buildButton(w*1.8, h*.5, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(w*2 h*.5, "sketches/animalSounds/animalSounds.html");
+  buildButton(w*2, h*.5, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
