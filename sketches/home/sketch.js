@@ -1,3 +1,6 @@
+let currentScreen = "homeScreen";
+
+
 function setup() {
   createCanvas(800, 550);
 }
