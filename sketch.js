@@ -1,20 +1,16 @@
-let currentScreen = "homeScreen";
-
+var landscape;
 
 function setup() {
-  createCanvas(800, 550);
-
-  button = createButton('Go to Shape Match');
-  button.position(350, 300);
-  button.mousePressed(() => {
-    currentScreen = "shapeMatchScreen";  // Change the screen when button is pressed
-  });
+ createCanvas(windowWidth, windowHeight);
+ background(100);
 }
 
 function draw() {
-  buildBackground();
+  imageMode(CENTER);
+  image(landscape, width/2, height/2);
+
 }
 
 function buildBackground(){
-  background(0, 0, 139);
+ landscape = loadImage('background.png');
 }
