@@ -4,7 +4,6 @@ function setup() {
 
 function draw() {
   buildBackground();
-  circle(5, 5, 1000);
 }
 
 function buildBackground(){
