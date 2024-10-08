@@ -11,17 +11,17 @@ function setup() {
 
   //create buttons below for each screen
   buildButton(100, 100, "sketches/colorMix/colorMix.html");
-  buildButton(100, 200, "sketches/maze/maze.html");
-  buildButton(100, 300, "sketches/bubblePop/bubblePop.html");
-  buildButton(100, 400, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(100, 500, "sketches/animalSounds/animalSounds.html");
+  buildButton(200, 100, "sketches/maze/maze.html");
+  buildButton(300, 100, "sketches/bubblePop/bubblePop.html");
+  buildButton(400, 100, "sketches/shapeMatch/shapeMatch.html");
+  buildButton(500, 100, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
   // Check if the image is loaded before trying to display it
   if (landscape) {
-    imageMode(CENTER);
-    image(landscape, width, height);
+    imageMode(CORNER);
+    image(landscape, 0, 0, width, height);
   } else {
     console.log('Image not loaded');
   }
