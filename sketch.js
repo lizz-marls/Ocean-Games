@@ -10,11 +10,11 @@ function setup() {
   background(100);
 
   //create buttons below for each screen
-  buildButton(100, 100, "sketches/colorMix/colorMix.html");
-  buildButton(200, 100, "sketches/maze/maze.html");
-  buildButton(300, 100, "sketches/bubblePop/bubblePop.html");
-  buildButton(400, 100, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(500, 100, "sketches/animalSounds/animalSounds.html");
+  buildButton(width-100*.2, height*.2, "sketches/colorMix/colorMix.html");
+  buildButton(width-100*.4, height*.25, "sketches/maze/maze.html");
+  buildButton(width-100*.6, height*.3, "sketches/bubblePop/bubblePop.html");
+  buildButton(width-100*.8, height*.4, "sketches/shapeMatch/shapeMatch.html");
+  buildButton((width-100), height*.35, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
