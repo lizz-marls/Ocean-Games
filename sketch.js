@@ -10,8 +10,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
 
-  w = width-35;
-  h = height-35;
+  w = width-5;
+  h = height-5;
   
   background(100);
   
