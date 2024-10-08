@@ -1,7 +1,3 @@
-
-let currentScreen = "shapeMatchScreen";
-
-
 function setup() {
   createCanvas(800, 550);
 }
