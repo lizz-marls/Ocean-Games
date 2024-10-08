@@ -1,32 +1,28 @@
-
 var landscape;
 
+function preload() {
+  // Preload the image to ensure it's fully loaded before using it
+  landscape = loadImage("/assets/background.png");
+}
+
 function setup() {
- createCanvas(windowWidth, windowHeight);
- background(100);
-}
+  createCanvas(windowWidth, windowHeight);
+  background(100);
 
-function draw() {
-  imageMode(CENTER);
-  image(landscape, width/2, height/2);
-
-}
-
-function buildBackground(){
- landscape = loadImage('assets/background.png');
-}
-
-
- button = createButton('Go to Shape Match');
+  // Create the button and set up the redirect
+  button = createButton('Go to Shape Match');
   button.position(150, 200);
-
- button.mousePressed(goToShapeMatch);
+  button.mousePressed(goToShapeMatch);
 }
 
 function draw() {
-  imageMode(CENTER);
-  image(landscape, width/2, height/2);
-
+  // Check if the image is loaded before trying to display it
+  if (landscape) {
+    imageMode(CENTER);
+    image(landscape, width / 2, height / 2);
+  } else {
+    console.log('Image not loaded');
+  }
 }
 
 function goToShapeMatch() {
