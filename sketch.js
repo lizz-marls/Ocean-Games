@@ -17,11 +17,11 @@ function setup() {
   
 
   //create buttons below for each screen
-  buildButton(w*.05, h*.4, "sketches/colorMix/colorMix.html");
-  buildButton(w*.24, h*.4, "sketches/maze/maze.html");
-  buildButton(w*.4, h*.4, "sketches/bubblePop/bubblePop.html");
-  buildButton(w*.75, h*.4, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(w*.875, h*.4, "sketches/animalSounds/animalSounds.html");
+  buildButton(w*.05, h*.45, "sketches/colorMix/colorMix.html");
+  buildButton(w*.24, h*.45, "sketches/maze/maze.html");
+  buildButton(w*.4, h*.45, "sketches/bubblePop/bubblePop.html");
+  buildButton(w*.75, h*.45, "sketches/shapeMatch/shapeMatch.html");
+  buildButton(w*.875, h*.45, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
@@ -37,7 +37,7 @@ function draw() {
 function buildButton(x, y, htmlLocation){
   let button = createButton('');  // Empty label for the button
   button.position(x, y);          // Set the button's position
-  button.size(180, 180);            // Set the size of the button (e.g., 50x50 pixels)
+  button.size(165, 165);            // Set the size of the button (e.g., 50x50 pixels)
   
   // Apply CSS to make the button invisible
   button.style('background-color', 'black');
