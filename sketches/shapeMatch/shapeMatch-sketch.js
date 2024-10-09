@@ -12,6 +12,8 @@ function setup() {
 
   w = width-10;
   h = height-10;
+
+  background(100);
   
 }
 
