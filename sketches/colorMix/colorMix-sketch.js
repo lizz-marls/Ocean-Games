@@ -32,14 +32,14 @@ function buildHomeButton(){
   
    //create button
   let button = createButton('HOME'); //button text 
-  button.position((w-150) * 0.5, h * 0.9); //button position on screen
-  button.size(150, 50);  // button size
+  button.position((w-200) * 0.5, h * 0.9); //button position on screen
+  button.size(200, 75);  // button size
 
   //button properties
   button.style('background-color', 'white'); //button color
   button.style('border', '1px solid black'); 
   button.style('border-radius', '10px');  //rounds corners
-  button.style('font-size', '25px') 
+  button.style('font-size', '30px') 
   
   // redirect on button click
   button.mousePressed(() => {
