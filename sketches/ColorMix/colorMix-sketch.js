@@ -47,4 +47,3 @@ function buildHomeButton(){
   button.mousePressed(() => {
     window.location.href = "../../index.html";
   });
-}
