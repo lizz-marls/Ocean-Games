@@ -37,7 +37,7 @@ function buildHomeButton(){
 
   //button properties
   button.style('background-color', 'white'); //button color
-  button.style('border', '2px solid black'); 
+  button.style('border', '3px solid black'); 
   button.style('border-radius', '10px');  //rounds corners
   button.style('font-size', '36px') ;
   button.style('font-weight', 'bold');
