@@ -29,19 +29,19 @@ function draw() {
 }
 
 function buildHomeButton(){
-  let button = createButton('HOME');
   
-  // Correct position and size of the button
-  button.position(windowWidth * 0.43, windowHeight * 0.9); 
-  button.size(165, 165);  // Adjust button size
+   //create button
+  let button = createButton('HOME'); //button text 
+  button.position(w * 0.43, h * 0.9); //button position on screen
+  button.size(150, 50);  // button size
 
-  // Apply CSS styles
-  button.style('background-color', 'white');
-  button.style('border', 'black');
-  button.style('border-radius', '75%');  // Circle button
+  //button properties
+  button.style('background-color', 'white'); //button color
+  button.style('border', '1px solid black'); //border
+  button.style('border-radius', '10px');  //rounds corners
   
-  // Redirect on button click
+  // redirect on button click
   button.mousePressed(() => {
-    //window.location.href = "../../index.html";
+    //window.location.href = "../../index.html"; //switches to home screen
   });
 }
