@@ -32,7 +32,7 @@ function buildHomeButton(){
   
    //create button
   let button = createButton('HOME'); //button text 
-  button.position(w * 0.5, h * 0.9); //button position on screen
+  button.position((w-150) * 0.5, h * 0.9); //button position on screen
   button.size(150, 50);  // button size
 
   //button properties
