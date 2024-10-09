@@ -2,10 +2,11 @@ var landscape;
 var w;
 var h;
 
+//load image in
 function preload() {
-  // Preload the image to ensure it's fully loaded before using it
   landscape = loadImage("../../assets/gameBackground1.png");
 }
+
 
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
@@ -19,18 +20,20 @@ function setup() {
 }
 
 function draw() {
-  // Check if the image is loaded before trying to display it
+  
+  // checks if the image is loaded before displaying it
   if (landscape) {
     imageMode(CORNER);
     image(landscape, 5, 5, w, h);
   } else {
     console.log('Image not loaded');
   }
+  
 }
 
 function buildHomeButton(){
   
-   //create button
+  //create button
   let button = createButton('HOME'); //button text 
   button.position((w-200) * 0.5, h * 0.9); //button position on screen
   button.size(200, 75);  // button size
