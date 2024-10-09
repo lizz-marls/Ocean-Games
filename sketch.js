@@ -19,7 +19,7 @@ function setup() {
   //create buttons below for each screen
   buildButton(w*.075, h*.428, "sketches/colorMix/colorMix.html");
   buildButton(w*.255, h*.428, "sketches/maze/maze.html");
-  buildButton(w*.45, h*.428, "sketches/bubblePop/bubblePop.html");
+  buildButton(w*.44, h*.428, "sketches/bubblePop/bubblePop.html");
   buildButton(w*.62, h*.428, "sketches/shapeMatch/shapeMatch.html");
   buildButton(w*.8, h*.428, "sketches/animalSounds/animalSounds.html");
 }
