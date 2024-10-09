@@ -45,5 +45,6 @@ function buildHomeButton(){
   
   // Redirect on button click
   button.mousePressed(() => {
-    window.location.href = "../../index.html";
+    //window.location.href = "../../index.html";
   });
+}
