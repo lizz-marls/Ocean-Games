@@ -17,11 +17,11 @@ function setup() {
   
 
   //create buttons below for each screen
-  buildButton(w*.08, h*.425, "sketches/colorMix/colorMix.html");
-  buildButton(w*.26, h*.425, "sketches/maze/maze.html");
-  buildButton(w*.48, h*.425, "sketches/bubblePop/bubblePop.html");
-  buildButton(w*.625, h*.425, "sketches/shapeMatch/shapeMatch.html");
-  buildButton(w*.78, h*.425, "sketches/animalSounds/animalSounds.html");
+  buildButton(w*.075, h*.428, "sketches/colorMix/colorMix.html");
+  buildButton(w*.255, h*.428, "sketches/maze/maze.html");
+  buildButton(w*.46, h*.428, "sketches/bubblePop/bubblePop.html");
+  buildButton(w*.62, h*.428, "sketches/shapeMatch/shapeMatch.html");
+  buildButton(w*.8, h*.428, "sketches/animalSounds/animalSounds.html");
 }
 
 function draw() {
