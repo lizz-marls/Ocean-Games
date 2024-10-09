@@ -18,7 +18,7 @@ function setup() {
   background(100);
 
   // Build the home button
-  buildHomeButton();
+  //buildHomeButton();
 }
 
 function draw() {
