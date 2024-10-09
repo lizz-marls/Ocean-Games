@@ -10,15 +10,11 @@ function preload() {
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
 
-  // Set width and height for the image and other elements
-  w = width - 10;
-  h = height - 10;
+  w = width-10;
+  h = height-10;
 
-  // Draw initial background
   background(100);
-
-  // Build the home button
-  //buildHomeButton();
+  
 }
 
 function draw() {
@@ -30,5 +26,3 @@ function draw() {
     console.log('Image not loaded');
   }
 }
-
-
