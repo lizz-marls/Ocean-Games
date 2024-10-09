@@ -39,7 +39,7 @@ function buildHomeButton(){
   button.style('background-color', 'white'); //button color
   button.style('border', '1px solid black'); 
   button.style('border-radius', '10px');  //rounds corners
-  button.style('font-size', 25px) 
+  button.style('font-size', '25px') 
   
   // redirect on button click
   button.mousePressed(() => {
