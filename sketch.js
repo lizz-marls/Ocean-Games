@@ -40,7 +40,7 @@ function buildButton(x, y, htmlLocation){
   button.size(165, 165);            // Set the size of the button (e.g., 50x50 pixels)
   
   // Apply CSS to make the button invisible
-  button.style('background-color', 'black');
+  button.style('background-color', 'transparent');
   button.style('border', 'black');
   button.style('border-radius', '50%'); 
   
