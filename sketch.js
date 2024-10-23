@@ -10,8 +10,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
 
-  w = width-10;
-  h = height-10;
+  w = width;
+  h = height;
   
   background(100);
   
@@ -28,7 +28,7 @@ function draw() {
   // Check if the image is loaded before trying to display it
   if (landscape) {
     imageMode(CORNER);
-    image(landscape, 5, 5, w, h);
+    image(landscape, 0, 0, w, h);
   } else {
     console.log('Image not loaded');
   }
