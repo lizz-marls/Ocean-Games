@@ -5,7 +5,7 @@ var r, g, b;
 
 //load image in
 function preload() {
-  landscape = loadImage("/assets/gameBackground1.png");
+  landscape = loadImage("../../assets/gameBackground1.png");
 }
 
 
