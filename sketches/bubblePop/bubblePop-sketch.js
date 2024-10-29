@@ -83,8 +83,8 @@ class Bubble{
     this.y = y;
     this.size = 130; //bubble size
     this.img = img;
-    this.speedX = random(-1.5,2); //horiz speed
-    this.speedY = random(-1.5,2); //vert speed 
+    this.speedX = random(-1,5); //horiz speed
+    this.speedY = random(-1,5); //vert speed 
   }
   //bubble movement
   move(){
