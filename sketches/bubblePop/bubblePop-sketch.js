@@ -15,8 +15,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
-  w = width-10;
-  h = height-10;
+  w = width;
+  h = height;
 
   background(100);
 
@@ -81,10 +81,10 @@ class Bubble{
   constructor(x, y, img){
     this.x = x;
     this.y = y;
-    this.size = 100; //bubble size
+    this.size = 130; //bubble size
     this.img = img;
-    this.speedX = random(-2.5,2); //horiz speed
-    this.speedY = random(-2.5,2); //vert speed 
+    this.speedX = random(-1.5,2); //horiz speed
+    this.speedY = random(-1.5,2); //vert speed 
   }
   //bubble movement
   move(){
