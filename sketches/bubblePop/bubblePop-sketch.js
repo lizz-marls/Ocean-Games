@@ -35,8 +35,8 @@ function buildHomeButton(){
   
   //create button
   let button = createButton('HOME'); //button text 
-  button.position((w-200) * 0.5, h * 0.9); //button position on screen
-  button.size(200, 75);  // button size
+  button.position(w-155, 5); //button position on screen
+  button.size(150, 75);  // button size
 
   //button properties
   button.style('background-color', 'white'); //button color
