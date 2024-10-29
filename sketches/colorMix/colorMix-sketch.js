@@ -21,8 +21,8 @@ function setup() {
 
   background(100);
   
-  buildColorButton("redButton", "red", w/2-500, h/2+100 );
-  buildColorButton("blueButton", "blue", w/2-300, h/2+100 );
+  buildColorButton("redButton", "red", w/2-300, h/2+100 );
+  buildColorButton("blueButton", "blue", w/2-100, h/2+100 );
   buildColorButton("greenButton", "green", w/2+100, h/2+100 );
   buildColorButton("whiteButton", "white", w/2+300, h/2+100 );
 
@@ -44,11 +44,12 @@ function draw() {
   
   triangle(w/2-50, h/2+50, w/2-100,h/2-75, w/2, h/2-75);
   
+  
   triangle(w/2-40, h/2-260, w/2-100,h/2-150, w/2-10, h/2-150);
   
   ellipse((w/2), (h/2)-100, 350, 200);
   
-  triangle(w/2+40, h/2-90, w/2-30, h/2-68, w/2-30, h/2-115);
+  triangle(w/2+70, h/2-90, w/2-10, h/2-70, w/2-10, h/2-120);
   
   circle(w/2-125, h/2-120, 25);
   
