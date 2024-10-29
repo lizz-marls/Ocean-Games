@@ -77,42 +77,43 @@ function spawnBubbles(num){
 }
 
 //bubble class
-class Bubble{
-  constructor(x, y, img){
+class Bubble {
+  constructor(x, y, img) {
     this.x = x;
     this.y = y;
-    this.size = 130; //bubble size
+    this.size = 130; // bubble size
     this.img = img;
-    this.speedX = random(1,4); //horiz speed
-    this.speedY = random(1,4); //vert speed 
+    this.speedX = random(1, 4); // horizontal speed
+    this.speedY = random(1, 4); // vertical speed 
   }
-  //bubble movement
-  move(){
+
+  // Bubble movement
+  move() {
     this.x += this.speedX;
     this.y += this.speedY;
-    
-  //bubble collision w wall
-    if (this.x < 115 || this.x > width-115) {
+
+    // Bubble collision with wall
+    if (this.x < 115 || this.x > width - 115) {
       this.speedX *= -1;
       this.speedY *= -1;
     }
-    if (this.y < 65 || this.y > height-65) 
-    {
+    if (this.y < 65 || this.y > height - 65) {
       this.speedY *= -1;
       this.speedX *= -1;
+    }
   }
   
-  //display bubble
-  display(){
+  // Display bubble
+  display() {
     imageMode(CENTER);
     image(this.img, this.x, this.y, this.size, this.size);
   }
-  //check is user click bubble
-  isClicked(px, py){
-    let d = dist(px,py, this.x, this.y);
-    return d < this.size/2;
+
+  // Check if user clicked bubble
+  isClicked(px, py) {
+    let d = dist(px, py, this.x, this.y);
+    return d < this.size / 2;
   }
-}
 }
 
 //Mouse click
