@@ -50,7 +50,8 @@ function draw() {
   ellipse((w/2)-20, (h/2)-100, 350, 200);
   
   triangle(w/2+80, h/2-100, w/2-20, h/2-80, w/2-20, h/2-130);
-  
+
+  fill("white");
   circle(w/2-135, h/2-130, 30);
   
   fill(0, 0, 0);
