@@ -47,7 +47,7 @@ function draw() {
   
   triangle(w/2-50, h/2-270, w/2-110,h/2-160, w/2-20, h/2-160);
   
-  ellipse((w/2)-20, (h/2)-100, 350, 220);
+  ellipse((w/2)-20, (h/2)-100, 350, 200);
   
   triangle(w/2+80, h/2-100, w/2-20, h/2-80, w/2-20, h/2-130);
   
@@ -72,18 +72,18 @@ function buildColorButton(name, color, x, y){
                
   button.mousePressed(() => {
     if(name === "redButton"){
-    b-= 5;
-    g -=5;
+    b-= 10;
+    g -=10;
   } else if (name === "blueButton"){
-    g -= 5;
-    r -=5;
+    g -= 10;
+    r -= 10;
   } else if (name === "greenButton"){
-    r-= 5;
-    b -=5;
+    r-= 10;
+    b -= 10;
   } else{
-    r+= 5;
-    g += 5;
-    b += 5;
+    r+= 10;
+    g += 10;
+    b += 10;
   }
     
   });
