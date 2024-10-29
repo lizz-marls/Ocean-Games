@@ -83,8 +83,8 @@ class Bubble{
     this.y = y;
     this.size = 130; //bubble size
     this.img = img;
-    this.speedX = random(-1,5); //horiz speed
-    this.speedY = random(-1,5); //vert speed 
+    this.speedX = random(-1,3.5); //horiz speed
+    this.speedY = random(-1,3.5); //vert speed 
   }
   //bubble movement
   move(){
@@ -92,8 +92,8 @@ class Bubble{
     this.y += this.speedY;
     
   //bubble collision w wall
-    if (this.x < 130 || this.x > width-130) this.speedX *= -1;
-    if (this.y < 130 || this.y > height-130) this.speedY *= -1;
+    if (this.x < 100 || this.x > width-100) this.speedX *= -1;
+    if (this.y < 100 || this.y > height-100) this.speedY *= -1;
   }
   
   //display bubble
