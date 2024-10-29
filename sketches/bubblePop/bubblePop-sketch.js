@@ -70,8 +70,8 @@ function drawGame(){
 function spawnBubbles(num){
   //Spawn bubbles @ random
   for (let i = 0; i < num; i++){
-    let x = random(width);
-    let y = random(height);
+    let x = random(150, width-150);
+    let y = random(150, height-150);
     bubbles.push(new Bubble(x, y, bubbleImage));
   }
 }
@@ -92,8 +92,14 @@ class Bubble{
     this.y += this.speedY;
     
   //bubble collision w wall
-    if (this.x < 115 || this.x > width-115) this.speedX *= -1;
-    if (this.y < 115 || this.y > height-115) this.speedY *= -1;
+    if (this.x < 115 || this.x > width-115) {
+      this.speedX *= -1;
+      this.speedY *= -1;
+    }
+    if (this.y < 65 || this.y > height-65) 
+    {
+      this.speedY *= -1;
+      this.speedX *= -1;
   }
   
   //display bubble
