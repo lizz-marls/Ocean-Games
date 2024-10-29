@@ -11,7 +11,6 @@ let bubbbleImage;
 function preload() {
   landscape = loadImage("../../assets/gameBackground2.png");  
   bubbleImage = loadImage("../../assets/bubble.png");
-  //ADD BUBLE IN AND CHANGE NAME^
 }
 
 function setup() {
