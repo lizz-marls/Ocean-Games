@@ -21,8 +21,8 @@ function setup() {
 
   background(100);
   
-  buildColorButton("redButton", "red", w/2-300, h/2+100 );
-  buildColorButton("blueButton", "blue", w/2-100, h/2+100 );
+  buildColorButton("redButton", "red", w/2-500, h/2+100 );
+  buildColorButton("blueButton", "blue", w/2-300, h/2+100 );
   buildColorButton("greenButton", "green", w/2+100, h/2+100 );
   buildColorButton("whiteButton", "white", w/2+300, h/2+100 );
 
