@@ -7,14 +7,12 @@ let score = 0;
 let gameOver = false;
 let bubbbleImage;
 
-
 //load image in
 function preload() {
   landscape = loadImage("../../assets/gameBackground2.png");  
   bubbleImage = loadImage("../../assets/bubble.png");
   //ADD BUBLE IN AND CHANGE NAME^
 }
-
 
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
@@ -84,10 +82,10 @@ class Bubble{
   constructor(x, y, img){
     this.x = x;
     this.y = y;
-    this.size = 50; //bubble size
+    this.size = 100; //bubble size
     this.img = img;
-    this.speedX = random(-2,2); //horiz speed
-    this.speedY = random(-2,2); //vert speed 
+    this.speedX = random(-2.5,2); //horiz speed
+    this.speedY = random(-2.5,2); //vert speed 
   }
   //bubble movement
   move(){
