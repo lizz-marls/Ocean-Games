@@ -113,6 +113,7 @@ class Bubble{
     return d < this.size/2;
   }
 }
+}
 
 //Mouse click
 function mousePressed(){
