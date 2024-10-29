@@ -1,10 +1,11 @@
 var landscape;
 var w;
 var h;
+var r, g, b;
 
 //load image in
 function preload() {
-  landscape = loadImage("../../assets/gameBackground1.png");
+  landscape = loadImage("/assets/gameBackground1.png");
 }
 
 
@@ -13,8 +14,17 @@ function setup() {
 
   w = width;
   h = height;
+  
+  r = 255;
+  b= 255;
+  g = 255;
 
   background(100);
+  
+  buildColorButton("redButton", "red", w/2-300, h/2+100 );
+  buildColorButton("blueButton", "blue", w/2-100, h/2+100 );
+  buildColorButton("greenButton", "green", w/2+100, h/2+100 );
+  buildColorButton("whiteButton", "white", w/2+300, h/2+100 );
 
   buildHomeButton();
 }
@@ -28,6 +38,55 @@ function draw() {
   } else {
     console.log('Image not loaded');
   }
+  
+  fill(r, g, b);
+  triangle(w/2+100, h/2-100, w/2+200,h/2, w/2+200, h/2-200);
+  
+  triangle(w/2-50, h/2+5, w/2-100,h/2-75, w/2-30, h/2-75);
+  
+  triangle(w/2-25, h/2-225, w/2-100,h/2-100, w/2, h/2-100);
+  
+  ellipse((w/2), (h/2)-100, 300, 150);
+  
+  triangle(w/2+40, h/2-90, w/2-30, h/2-68, w/2-30, h/2-115);
+  
+  circle(w/2-100, h/2-110, 25);
+  
+  fill(0, 0, 0);
+  circle(w/2-102, h/2-112, 10);
+  
+  fill(r, g, b);
+  arc(w/2-115, h/2-90, 60, 60, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
+  
+}
+
+function buildColorButton(name, color, x, y){
+  let button = createButton('');
+  button.position(x, y);
+  button.size(100, 100);
+  
+  button.style('background-color', color);
+  button.style('border', '3px solid black');
+  button.style('border-radius', '50%');
+               
+  button.mousePressed(() => {
+    if(name === "redButton"){
+    b-= 5;
+    g -=5;
+  } else if (name === "blueButton"){
+    g -= 5;
+    r -=5;
+  } else if (name === "greenButton"){
+    r-= 5;
+    b -=5;
+  } else{
+    r+= 5;
+    g += 5;
+    b += 5;
+  }
+    
+  });
+  
   
 }
 
