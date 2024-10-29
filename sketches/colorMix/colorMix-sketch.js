@@ -52,7 +52,8 @@ function draw() {
   ellipse((w/2)-20, (h/2)-100, 350, 220);
   
   triangle(w/2+80, h/2-100, w/2-20, h/2-80, w/2-20, h/2-130);
-  
+
+  fill("white");
   circle(w/2-135, h/2-130, 30);
   
   fill(0, 0, 0);
@@ -64,10 +65,10 @@ function draw() {
 }
 
 function buildResetButton(){
-  let button = createButton('RESET'); //button text 
-  button.position(w-155, 5); //button position on screen
-  button.size(150, 75);  // button size
-
+  let button = createButton('RESET'); //button text
+  button.position((w-200) * 0.5, h * 0.9); //button position on screen
+  button.size(200, 75);  // button size
+  
   //button properties
   button.style('background-color', 'white'); //button color
   button.style('border', '3px solid black'); 
@@ -117,8 +118,8 @@ function buildHomeButton(){
   
   //create button
   let button = createButton('HOME'); //button text 
-  button.position((w-200) * 0.5, h * 0.9); //button position on screen
-  button.size(200, 75);  // button size
+   button.position(w-155, 5); //button position on screen
+  button.size(150, 75);  // button size
 
   //button properties
   button.style('background-color', 'white'); //button color
