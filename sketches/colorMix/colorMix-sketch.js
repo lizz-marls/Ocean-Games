@@ -94,18 +94,18 @@ function buildColorButton(name, color, x, y){
                
   button.mousePressed(() => {
     if(name === "redButton"){
-    b-= 15;
-    g -=15;
+    b-= 25;
+    g -=25;
   } else if (name === "blueButton"){
-    g -= 15;
-    r -=15;
+    g -= 25;
+    r -=25;
   } else if (name === "greenButton"){
-    r-= 15;
-    b -=15;
+    r-= 25;
+    b -=25;
   } else{
-    r+= 15;
-    g += 15;
-    b += 15;
+    r+= 25;
+    g += 25;
+    b += 25;
   }
     
   });
