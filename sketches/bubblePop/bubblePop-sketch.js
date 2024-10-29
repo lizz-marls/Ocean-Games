@@ -92,8 +92,8 @@ class Bubble{
     this.y += this.speedY;
     
   //bubble collision w wall
-    if (this.x < 0 || this.x > width) this.speedX *= -1;
-    if (this.y < 0 || this.y > height) this.speedY *= -1;
+    if (this.x < 130 || this.x > width-130) this.speedX *= -1;
+    if (this.y < 130 || this.y > height-130) this.speedY *= -1;
   }
   
   //display bubble
