@@ -21,10 +21,10 @@ function setup() {
 
   background(100);
   
-  buildColorButton("redButton", "red", w/2-400, h/2+100 );
-  buildColorButton("blueButton", "blue", w/2-200, h/2+100 );
-  buildColorButton("greenButton", "green", w/2+50, h/2+100 );
-  buildColorButton("whiteButton", "white", w/2+250, h/2+100 );
+  buildColorButton("redButton", "red", w/2-375, h/2+100 );
+  buildColorButton("blueButton", "blue", w/2-175, h/2+100 );
+  buildColorButton("greenButton", "green", w/2+25, h/2+100 );
+  buildColorButton("whiteButton", "white", w/2+225, h/2+100 );
 
   buildHomeButton();
 }
