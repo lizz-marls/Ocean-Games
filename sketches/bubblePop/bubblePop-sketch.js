@@ -5,7 +5,7 @@ var h;
 let bubbles = [];
 let score = 0;
 let gameOver = false;
-let bubbbleImage;
+let bubbleImage;
 
 //load image in
 function preload() {
@@ -31,7 +31,7 @@ function draw() {
   // checks if the image is loaded before displaying it
   if (landscape) {
     imageMode(CORNER);
-    image(landscape, 5, 5, w, h);
+    image(landscape, 0, 0, w, h);
   } else {
     console.log('Image not loaded');
   }
