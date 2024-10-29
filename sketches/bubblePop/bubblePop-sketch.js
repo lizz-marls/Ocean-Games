@@ -125,7 +125,7 @@ function mousePressed(){
     break;
     }
   }
-
+}
 function buildHomeButton(){
   
   //create button
