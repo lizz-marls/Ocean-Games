@@ -57,7 +57,7 @@ function draw() {
   circle(w/2-137, h/2-132, 15);
   
   fill(r, g, b);
-  arc(w/2-155, h/2-90, 80, 80, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
+  arc(w/2-153, h/2-90, 80, 80, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
   
 }
 
