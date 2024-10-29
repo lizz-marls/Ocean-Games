@@ -40,30 +40,30 @@ function draw() {
   }
   
   fill(r, g, b);
-  triangle(w/2+100, h/2-100, w/2+200,h/2, w/2+200, h/2-200);
+  triangle(w/2+100, h/2-100, w/2+225,h/2, w/2+225, h/2-200);
   
-  triangle(w/2-50, h/2+5, w/2-100,h/2-75, w/2-30, h/2-75);
+  triangle(w/2-50, h/2+50, w/2-100,h/2-75, w/2, h/2-75);
   
-  triangle(w/2-25, h/2-225, w/2-100,h/2-100, w/2, h/2-100);
+  triangle(w/2-40, h/2-260, w/2-100,h/2-150, w/2-10, h/2-150);
   
-  ellipse((w/2), (h/2)-100, 300, 150);
+  ellipse((w/2), (h/2)-100, 350, 200);
   
   triangle(w/2+40, h/2-90, w/2-30, h/2-68, w/2-30, h/2-115);
   
-  circle(w/2-100, h/2-110, 25);
+  circle(w/2-125, h/2-120, 25);
   
   fill(0, 0, 0);
-  circle(w/2-102, h/2-112, 10);
+  circle(w/2-127, h/2-122, 10);
   
   fill(r, g, b);
-  arc(w/2-115, h/2-90, 60, 60, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
+  arc(w/2-136, h/2-90, 75, 75, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
   
 }
 
 function buildColorButton(name, color, x, y){
   let button = createButton('');
   button.position(x, y);
-  button.size(100, 100);
+  button.size(150, 150);
   
   button.style('background-color', color);
   button.style('border', '3px solid black');
