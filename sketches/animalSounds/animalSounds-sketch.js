@@ -9,7 +9,7 @@ let canClick = false;
 let feedbackColor = 'white';
 let speakerButton, homeButton, animalButtons = [];
 
-//load image in
+//loads images and sounds
 function preload() {
  //sounds
     sounds[0] = loadSound('sounds/dog.mp3');
@@ -17,9 +17,8 @@ function preload() {
     sounds[2] = loadSound('sounds/chicken.mp3');
     sounds[3] = loadSound('sounds/pig.mp3');
     sounds[4] = loadSound('sounds/cow.mp3');
-  
-  landscape = loadImage("../../assets/gameBackground1.png");
-  
+  //image
+  landscape = loadImage("../../assets/gameBackground1.png");  
 }
 
 
@@ -27,13 +26,13 @@ function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
   w = width;
   h = height;
-  background(100);
 
   //speaker button:
     speakerButton = createButton('🎤'); //temporary emoji!
     speakerButton.position(width / 2 - 25, height / 2 + 50);
     speakerButton.size(50);
     speakerButton.mousePressed(playSound);
+ 
   //animal buttons:
     for (let i = 0; i < animalNames.length; i++) {
         let animalButton = createButton(animalNames[i]);
@@ -42,13 +41,15 @@ function setup() {
         animalButton.mousePressed(() => checkAnswer(i));
         animalButtons.push(animalButton);
     }
-    
+    //home button
+    buildHomeButton();
+ 
     noLoop();  
 }
 
 function draw() {
   
-  // checks if the image is loaded before displaying it
+  //checks if the image is loaded before displaying it
   if (landscape) {
     imageMode(CORNER);
     image(landscape, 0, 0, w, h);
