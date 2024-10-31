@@ -11,23 +11,22 @@ let speakerButton, homeButton, animalButtons = [];
 
 //load image in
 function preload() {
-  landscape = loadImage("../../assets/gameBackground1.png");
-  
-  //sounds
+ //sounds
     sounds[0] = loadSound('sounds/dog.mp3');
     sounds[1] = loadSound('sounds/cat.mp3');
     sounds[2] = loadSound('sounds/chicken.mp3');
     sounds[3] = loadSound('sounds/pig.mp3');
     sounds[4] = loadSound('sounds/cow.mp3');
+  
+  landscape = loadImage("../../assets/gameBackground1.png");
+  
 }
 
 
 function setup() {
   createCanvas(windowWidth-5, windowHeight-5);
-
   w = width;
   h = height;
-
   background(100);
 
   //speaker button:
