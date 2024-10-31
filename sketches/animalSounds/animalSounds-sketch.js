@@ -30,8 +30,6 @@ function setup() {
 
   background(100);
 
-  buildHomeButton();
-
   //speaker button:
     speakerButton = createButton('🎤'); //temporary emoji!
     speakerButton.position(width / 2 - 25, height / 2 + 50);
