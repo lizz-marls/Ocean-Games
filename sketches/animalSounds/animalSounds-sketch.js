@@ -2,12 +2,15 @@ var landscape;
 var w;
 var h;
 
+//sounds
 let sounds = [];
-let animalNames = ['Dog', 'Cat', 'Chicken', 'Pig', 'Cow'];
 let currentSoundIndex = -1;
 let canClick = false;
 let feedbackColor = 'white';
-let speakerButton, homeButton, animalButtons = [];
+
+//buttons
+let speakerButton = [];
+let homeButton = [];
 
 //loads images and sounds
 function preload() {
@@ -28,27 +31,26 @@ function setup() {
   h = height;
 
   //speaker button:
-    speakerButton = createButton('🎤'); //temporary emoji!
+    speakerButton = createButton('🔊');
     speakerButton.position(width / 2 - 25, height / 2 + 50);
     speakerButton.size(50);
     speakerButton.mousePressed(playSound);
- 
-  //animal buttons:
-    for (let i = 0; i < animalNames.length; i++) {
-        let animalButton = createButton(animalNames[i]);
-        animalButton.position(width / 2 + 100 * cos(PI / 5 * i) - 25, height / 2 - 100 * sin(PI / 5 * i) + 50);
-        animalButton.size(70);
-        animalButton.mousePressed(() => checkAnswer(i));
-        animalButtons.push(animalButton);
-    }
-    //home button
-    buildHomeButton();
- 
-    noLoop();  
-}
 
-function draw() {
-  
+  //home button
+    buildHomeButton();
+
+  //animal buttons
+    buildAnimalButton("catButton", 'assets/cat.png', w/2-375, h/2+100);
+    buildAnimalButton("dogButton", 'assets/dog.png', w/2-175, h/2+100);
+    buildAnimalButton("cowButton", 'assets/cow.png', w/2+25, h/2+100);
+    buildAnimalButton("chickenButton", 'assets/chicken.png', w/2-375, h/2+100);
+    buildAnimalButton("pigButton", 'assets/pig.png', w/2+200, h/2+100);
+
+
+} 
+
+
+function draw() { 
   //checks if the image is loaded before displaying it
   if (landscape) {
     imageMode(CORNER);
@@ -56,13 +58,6 @@ function draw() {
   } else {
     console.log('Image not loaded');
   }
-  //button colors
-    fill(feedbackColor);
-    ellipse(width / 2, height / 2 + 50, 150, 150);
-    textAlign(CENTER, CENTER);
-    textSize(32);
-    fill(0);
-    text('Click the Speaker!', width / 2, height / 2);
   
 }
 
@@ -117,4 +112,36 @@ function buildHomeButton(){
   });
 }
 
+function buildAnimalButton(name, picture, x, y){
+  let button = createButton('');
+  button.position(x, y);
+  button.size(150, 150);
 
+  button.style('background-image', picture);
+  button.style('border', '3px solid black');
+  button.style('border-radius', '50%');
+
+  button.mousePressed(() => {
+    if(name == "catButton"){
+
+
+    }
+    else if(name == "dogButton"){
+
+
+    }
+    else if(name == "cowButton"){
+
+
+    }
+    else if(name == "chickenButton"){
+
+
+    }
+    else if(name == "pigButton")
+
+
+})
+
+
+}
