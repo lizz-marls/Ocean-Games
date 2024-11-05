@@ -1,24 +1,23 @@
 var landscape;
 const sounds = [];
-let currentSoundIndex = -1; // Index of the currently playing sound
+let currentSoundIndex = -1; 
 let animalButtons = [];
-let feedbackMessage = "Guess the Sound!"; // Default message
-let feedbackTimeout; // Timeout for resetting the feedback message
+let feedbackMessage = "Guess the Sound!"; 
+let feedbackTimeout;
 const animalImage = [];
 let speakerImage;
 
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
-   
-  //speaker
-   speakerImage = loadImage("/sketches/animalSounds/icons/speaker.png")
+   //speaker
+  speakerImage = loadImage("/sketches/animalSounds/icons/speaker.png")
    //animals
-   animalImage[0] = loadImage("/sketches/animalSounds/icons/dog.png");
-   animalImage[1] = loadImage("/sketches/animalSounds/icons/cat.png");
-   animalImage[2] = loadImage("/sketches/animalSounds/icons/chicken.png");
-   animalImage[3] = loadImage("/sketches/animalSounds/icons/pig.png");
-   animalImage[4] = loadImage("/sketches/animalSounds/icons/cow.png")
-
+  animalImage[0] = loadImage("/sketches/animalSounds/icons/dog.png");
+  animalImage[1] = loadImage("/sketches/animalSounds/icons/cat.png");
+  animalImage[2] = loadImage("/sketches/animalSounds/icons/chicken.png");
+  animalImage[3] = loadImage("/sketches/animalSounds/icons/pig.png");
+  animalImage[4] = loadImage("/sketches/animalSounds/icons/cow.png")
+   //sounds
   sounds[0] = loadSound("/sketches/animalSounds/sounds/dog.mp3");
   sounds[1] = loadSound("/sketches/animalSounds/sounds/cat.mp3");
   sounds[2] = loadSound("/sketches/animalSounds/sounds/chicken.mp3");
@@ -33,7 +32,7 @@ function setup() {
   w = width;
   h = height;
 
-  // animal buttons
+  //animal buttons
   buildAnimalButton(0); 
   buildAnimalButton(1);
   buildAnimalButton(2);
@@ -41,7 +40,7 @@ function setup() {
   buildAnimalButton(4);
 
 
-  // sound button
+  //sound button
   let speakerButton = createButton('');
   speakerButton.position(w / 2 - 25, h / 2 + 50);
   speakerButton.size(speakerImage.width / 1.4, speakerImage.height / 1.45);
@@ -61,7 +60,6 @@ function draw() {
     console.log('Image not loaded');
   }
 
-  // Display the feedback message
   textSize(18);
   fill(0);
   textAlign(CENTER);
@@ -69,7 +67,7 @@ function draw() {
 }
 
 function buildHomeButton() {
-  // Create button
+  //create button
   let button = createButton('HOME'); // Button text 
   button.position(w - 155, 5); // Button position on screen
   button.size(150, 75);  // Button size
@@ -88,52 +86,44 @@ function buildHomeButton() {
 }
 
 function buildAnimalButton(index){
-  let button = createButton(''); 
-  button.position(125, 100 + index * 50); 
-  button.size(animalImage[index].width, animalImage[index].height);
-  button.style('background-image',`url(${animalImage[index].canvas.toDataURL()})`);
-  button.style('border', 'none');
-  button.mousePressed(() => guessSound(index));
+  let animalButton = createButton(''); 
+  animalButton.position(125, 100 + index * 50); 
+  animalButton.size(animalImage[index].width, animalImage[index].height);
+  animalButton.style('background-image',`url(${animalImage[index].canvas.toDataURL()})`);
+  animalButton.style('border', 'none');
+  animalButton.mousePressed(() => guessSound(index));
   animalButtons.push(button);
 }
 
 
 function guessSound(index) {
-  // Check if the guessed index matches the currently playing sound index
   if (index === currentSoundIndex) {
-    animalButtons[index].style('background-color', 'green'); // Correct guess
+    animalButtons[index].style('background-color', 'green'); // correct guess
     
-    // Set a random congratulatory message
+    //random congratulatory message
     const messages = ["Awesome!", "Amazing!", "Great Job!", "Fantastic!"];
     feedbackMessage = random(messages);
 
-    // Clear the feedback message after a delay
+    //clears the feedback message after a delay
     clearTimeout(feedbackTimeout);
     feedbackTimeout = setTimeout(() => {
       feedbackMessage = "Guess the Sound!";
-    }, 1500); // 2-second delay
+    }, 1500); 
 
-    // Reset the current sound index to allow for a new random sound next time
     currentSoundIndex = -1;
-    setTimeout(resetButtonColors, 1000); // Clear colors after 1 second
+    setTimeout(resetButtonColors, 1000); 
   } else {
-    animalButtons[index].style('background-color', 'red'); // Incorrect guess
+    animalButtons[index].style('background-color', 'red'); // incorrect guess
   }
 }
 
 function playSound() {
-  // If there's no current sound selected, choose a new one
   if (currentSoundIndex === -1) {
     currentSoundIndex = floor(random(sounds.length));
   }
 
-  // Stop any currently playing sound
   sounds.forEach(sound => sound.stop());
-
-  // Play the selected random sound
   sounds[currentSoundIndex].play();
-
-  // Reset button colors
   resetButtonColors();
 }
 
