@@ -38,7 +38,8 @@ function setup() {
   // Sound button
   let speakerButton = createButton('');
   speakerButton.position(w / 2 - 25, h / 2 + 50);
-  speakerButton.size(100, 100);
+  speakerButton.size(speakerImage.width / 1.4, speakerImage.height / 1.45);
+  //speakerButton.size(100, 100);
   speakerButton.style('background-image', 'url(icons/speaker.png)');
   speakerButton.style('background-size', 'cover');
   speakerButton.style('border', 'none');
