@@ -10,19 +10,19 @@ let speakerImage;
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
    //speaker
-  speakerImage = loadImage("/sketches/animalSounds/icons/speaker.png")
+  speakerImage = loadImage("icons/speaker.png")
    //animals
-  animalImage[0] = loadImage("/sketches/animalSounds/icons/dog.png");
-  animalImage[1] = loadImage("/sketches/animalSounds/icons/cat.png");
-  animalImage[2] = loadImage("/sketches/animalSounds/icons/chicken.png");
-  animalImage[3] = loadImage("/sketches/animalSounds/icons/pig.png");
-  animalImage[4] = loadImage("/sketches/animalSounds/icons/cow.png")
+  animalImage[0] = loadImage("icons/dog.png");
+  animalImage[1] = loadImage("icons/cat.png");
+  animalImage[2] = loadImage("icons/chicken.png");
+  animalImage[3] = loadImage("icons/pig.png");
+  animalImage[4] = loadImage("icons/cow.png")
    //sounds
-  sounds[0] = loadSound("/sketches/animalSounds/sounds/dog.mp3");
-  sounds[1] = loadSound("/sketches/animalSounds/sounds/cat.mp3");
-  sounds[2] = loadSound("/sketches/animalSounds/sounds/chicken.mp3");
-  sounds[3] = loadSound("/sketches/animalSounds/sounds/pig.mp3");
-  sounds[4] = loadSound("/sketches/animalSounds/sounds/cow.mp3");
+  sounds[0] = loadSound("sounds/dog.mp3");
+  sounds[1] = loadSound("sounds/cat.mp3");
+  sounds[2] = loadSound("sounds/chicken.mp3");
+  sounds[3] = loadSound("sounds/pig.mp3");
+  sounds[4] = loadSound("sounds/cow.mp3");
 
 }
 
