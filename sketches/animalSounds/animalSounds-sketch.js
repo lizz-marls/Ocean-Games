@@ -38,8 +38,8 @@ function setup() {
   // Sound button
   let speakerButton = createButton('');
   speakerButton.position(w / 2 - 25, h / 2 + 50);
-  speakerButton.size(speakerImage.width / 1.4, speakerImage.height / 1.45);
-  //speakerButton.size(100, 100);
+  //speakerButton.size(speakerImage.width / 1.4, speakerImage.height / 1.45);
+  speakerButton.size(200, 200);
   speakerButton.style('background-image', 'url(icons/speaker.png)');
   speakerButton.style('background-size', 'cover');
   speakerButton.style('border', 'none');
@@ -79,8 +79,8 @@ function buildHomeButton() {
 
 function buildAnimalButton(index){
   let animalButton = createButton(''); 
-  animalButton.position(125, 100 + index * 50); 
-  animalButton.size(50, 50);
+  animalButton.position(125, 100 + index * 100); 
+  animalButton.size(200 , 200);
   animalButton.style('background-image', `url(icons/${["dog", "cat", "chicken", "pig", "cow"][index]}.png)`);
   animalButton.style('background-size', 'cover');
   animalButton.style('border', 'none');
