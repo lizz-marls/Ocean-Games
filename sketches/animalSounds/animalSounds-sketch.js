@@ -29,21 +29,22 @@ function setup() {
   createCanvas(windowWidth - 5, windowHeight - 5);
 
   // Animal buttons
-  buildAnimalButton(0); 
-  buildAnimalButton(1);
-  buildAnimalButton(2);
-  buildAnimalButton(3);
-  buildAnimalButton(4);
+  buildAnimalButton(0, 350,500); 
+  buildAnimalButton(1, 430, 270);
+  buildAnimalButton(2, 670, 190);
+  buildAnimalButton(3, 915, 270);
+  buildAnimalButton(4, 1000, 500);
 
   // Sound button
   let speakerButton = createButton('');
-  speakerButton.position(w / 2 - 25, h / 2 + 50);
-  //speakerButton.size(speakerImage.width / 1.4, speakerImage.height / 1.45);
-  speakerButton.size(200, 200);
+  speakerButton.position(600, 400);
+  speakerButton.size(250, 250);
   speakerButton.style('background-image', 'url(icons/speaker.png)');
   speakerButton.style('background-size', 'cover');
   speakerButton.style('border', 'none');
+  speakerButton.style('border-radius', '50%');
   speakerButton.mousePressed(playSound);
+
 
   // Home button
   buildHomeButton();
@@ -77,15 +78,18 @@ function buildHomeButton() {
   });
 }
 
-function buildAnimalButton(index){
+function buildAnimalButton(index, w, h){
   let animalButton = createButton(''); 
-  animalButton.position(125, 100 + index * 100); 
-  animalButton.size(200 , 200);
+  animalButton.position(w, h); 
+  animalButton.size(150 , 150);
   animalButton.style('background-image', `url(icons/${["dog", "cat", "chicken", "pig", "cow"][index]}.png)`);
   animalButton.style('background-size', 'cover');
   animalButton.style('border', 'none');
+  animalButton.style('border-radius', '40%')
   animalButton.mousePressed(() => guessSound(index));
   animalButtons.push(animalButton);
+
+  
 }
 
 function guessSound(index) {
