@@ -29,11 +29,11 @@ function setup() {
   createCanvas(windowWidth - 5, windowHeight - 5);
 
   // Animal buttons
-  buildAnimalButton(0, 350,500); 
-  buildAnimalButton(1, 430, 270);
-  buildAnimalButton(2, 670, 190);
-  buildAnimalButton(3, 915, 270);
-  buildAnimalButton(4, 1000, 500);
+  buildAnimalButton(0, 350, 500); 
+  buildAnimalButton(1, 425, 300);
+  buildAnimalButton(2, 650, 200);
+  buildAnimalButton(3, 865, 300);
+  buildAnimalButton(4, 950, 500);
 
   // Sound button
   let speakerButton = createButton('');
@@ -58,7 +58,7 @@ function draw() {
     console.log('Image not loaded');
   }
 
-  textSize(18);
+  textSize(30);
   fill(0);
   textAlign(CENTER);
   text(feedbackMessage, width / 2, 50);
@@ -85,7 +85,7 @@ function buildAnimalButton(index, w, h){
   animalButton.style('background-image', `url(icons/${["dog", "cat", "chicken", "pig", "cow"][index]}.png)`);
   animalButton.style('background-size', 'cover');
   animalButton.style('border', 'none');
-  animalButton.style('border-radius', '40%')
+  animalButton.style('border-radius', '30%')
   animalButton.mousePressed(() => guessSound(index));
   animalButtons.push(animalButton);
 
