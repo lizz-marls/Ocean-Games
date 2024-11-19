@@ -1,224 +1,135 @@
 var landscape;
 var w;
 var h;
+var r, g, b;
 
-const targetShapeY = 250;
-const targetShapeY2 = 500;
-let shuffledCoords;
-let targetShapeCoords;
-let shapes = [];
-let draggedShape = null;
-
+//load image in
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
 }
 
+
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth-5, windowHeight-5);
 
   w = width;
   h = height;
+  
+  r = 255;
+  b= 255;
+  g = 255;
 
   background(100);
   
-  targetShapeCoords = getTargetShapeCoords();
+  buildColorButton("redButton", "red", w/2-375, h/2+100 );
+  buildColorButton("blueButton", "blue", w/2-175, h/2+100 );
+  buildColorButton("greenButton", "green", w/2+25, h/2+100 );
+  buildColorButton("whiteButton", "white", w/2+200, h/2+100 );
   
-  shuffledCoords = shuffleArray([...targetShapeCoords]);
-
-  for (let i = 0; i < shuffledCoords.length; i++) {
-    shapes.push({
-      x: shuffledCoords[i],
-      y: targetShapeY2,
-      originalX: shuffledCoords[i],
-      originalY: targetShapeY2,
-      type: i,
-      matched: false,
-    });
-  }
+  buildResetButton(); 
 
   buildHomeButton(); 
 }
 
 function draw() {
+  
+  // checks if the image is loaded before displaying it
   if (landscape) {
     imageMode(CORNER);
     image(landscape, 0, 0, w, h);
   } else {
     console.log('Image not loaded');
   }
+  
+  fill(r, g, b);
+  triangle(w/2+110, h/2-110, w/2+235,h/2, w/2+235, h/2-210);
+  
+  triangle(w/2-60, h/2+60, w/2-110,h/2-85, w/2-10, h/2-85);
+  
+  
+  triangle(w/2-50, h/2-270, w/2-110,h/2-160, w/2-20, h/2-160);
+  
+  ellipse((w/2)-20, (h/2)-100, 350, 220);
+  
+  triangle(w/2+80, h/2-100, w/2-20, h/2-80, w/2-20, h/2-130);
 
-  drawTargetShapes(targetShapeCoords);
-  drawColoredShapes();
+  fill("white");
+  circle(w/2-135, h/2-130, 30);
+  
+  fill(0, 0, 0);
+  circle(w/2-137, h/2-132, 15);
+  
+  fill(r, g, b);
+  arc(w/2-155, h/2-90, 80, 80, 0 + 2*HALF_PI/5 , HALF_PI+HALF_PI/2);
+  
 }
 
-function getTargetShapeCoords() {
-  const resultArr = new Array(5);
-  const slice = width / 6;
-  for (let i = 1; i <= 5; i++) {
-    resultArr[i - 1] = slice * i;
-  }
-  return resultArr;
-}
-
-function drawTargetShapes(targetShapeCoords) {
-  for (let i = 0; i < targetShapeCoords.length; i++) {
-    const matchedShape = shapes.find(shape => shape.type === i && shape.matched);
-    if (matchedShape) {
-      switch (matchedShape.type) {
-        case 0:
-          fill("red");
-          circle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 1:
-          fill("green");
-          square(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 2:
-          fill("purple");
-          drawEquilateralTriangle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 3:
-          fill("orange");
-          drawDiamond(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 4:
-          fill("blue");
-          circle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-      }
-    } else {
-      fill("black");
-      switch (i) {
-        case 0:
-          circle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 1:
-          square(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 2:
-          drawEquilateralTriangle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 3:
-          drawDiamond(targetShapeCoords[i], targetShapeY, 100);
-          break;
-        case 4:
-          circle(targetShapeCoords[i], targetShapeY, 100);
-          break;
-      }
-    }
-  }
-}
-
-function drawColoredShapes() {
-  for (let shape of shapes) {
-    if (!shape.matched) {
-      switch (shape.type) {
-        case 0:
-          fill("red");
-          circle(shape.x, shape.y, 100);
-          break;
-        case 1:
-          fill("green");
-          square(shape.x, shape.y, 100);
-          break;
-        case 2:
-          fill("purple");
-          drawEquilateralTriangle(shape.x, shape.y, 100);
-          break;
-        case 3:
-          fill("orange");
-          drawDiamond(shape.x, shape.y, 100);
-          break;
-        case 4:
-          fill("blue");
-          circle(shape.x, shape.y, 100);
-          break;
-      }
-    }
-  }
-}
-
-function drawEquilateralTriangle(xc, yc, h) {
-  let s = (2 * h) / sqrt(3);
-
-  let x1 = xc;
-  let y1 = yc - h / 2;
-
-  let x2 = xc - s / 2;
-  let y2 = yc + h / 2;
-
-  let x3 = xc + s / 2;
-  let y3 = yc + h / 2;
-
-  triangle(x1, y1, x2, y2, x3, y3);
-}
-
-function drawDiamond(xc, yc, size) {
-  let halfSize = size / 2;
-
-  quad(
-    xc,
-    yc - halfSize,
-    xc + halfSize,
-    yc,
-    xc,
-    yc + halfSize,
-    xc - halfSize,
-    yc
-  );
-}
-
-function mousePressed() {
-  shapes.forEach(shape => {
-    if (!shape.matched && dist(mouseX, mouseY, shape.x, shape.y) < 50) {
-      draggedShape = shape;
-    }
+function buildResetButton(){
+  let button = createButton('RESET'); //button text
+  button.position((w-200) * 0.5, h * 0.9); //button position on screen
+  button.size(200, 75);  // button size
+  
+  //button properties
+  button.style('background-color', 'white'); //button color
+  button.style('border', '3px solid black'); 
+  button.style('border-radius', '10px');  //rounds corners
+  button.style('font-size', '36px') ;
+  button.style('font-weight', 'bold');
+  
+  // redirect home on button click
+  button.mousePressed(() => {
+    r =255;
+    b = 255;
+    g=255;
   });
 }
 
-function mouseDragged() {
-  if (draggedShape) {
-    draggedShape.x = mouseX;
-    draggedShape.y = mouseY;
-  }
-}
-
-function mouseReleased() {
-  if (draggedShape) {
-    let targetX = targetShapeCoords[draggedShape.type];
-    let targetY = targetShapeY;
-
-    if (dist(draggedShape.x, draggedShape.y, targetX, targetY) < 50) {
-      draggedShape.x = targetX;
-      draggedShape.y = targetY;
-      draggedShape.matched = true;
-    } else {
-      draggedShape.x = draggedShape.originalX;
-      draggedShape.y = draggedShape.originalY;
-    }
-
-    draggedShape = null;
-  }
-}
-
-function shuffleArray(arr) {
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-function buildHomeButton() {
-  let button = createButton('HOME');
-  button.position(w - 155, 5);
-  button.size(150, 75);
-  button.style('background-color', 'white');
+function buildColorButton(name, color, x, y){
+  let button = createButton('');
+  button.position(x, y);
+  button.size(150, 150);
+  
+  button.style('background-color', color);
   button.style('border', '3px solid black');
-  button.style('border-radius', '10px');
-  button.style('font-size', '36px');
-  button.style('font-weight', 'bold');
+  button.style('border-radius', '50%');
+               
   button.mousePressed(() => {
-    window.location.href = "../../index.html";
+    if(name === "redButton"){
+    b-= 25;
+    g -=25;
+  } else if (name === "blueButton"){
+    g -= 25;
+    r -=25;
+  } else if (name === "greenButton"){
+    r-= 25;
+    b -=25;
+  } else{
+    r+= 25;
+    g += 25;
+    b += 25;
+  }
+    
+  });
+  
+  
+}
+
+function buildHomeButton(){
+  
+  //create button
+  let button = createButton('HOME'); //button text 
+   button.position(w-155, 5); //button position on screen
+  button.size(150, 75);  // button size
+
+  //button properties
+  button.style('background-color', 'white'); //button color
+  button.style('border', '3px solid black'); 
+  button.style('border-radius', '10px');  //rounds corners
+  button.style('font-size', '36px') ;
+  button.style('font-weight', 'bold');
+  
+  // redirect home on button click
+  button.mousePressed(() => {
+    window.location.href = "../../index.html"; 
   });
 }
