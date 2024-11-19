@@ -2,8 +2,8 @@ var landscape;
 var w;
 var h;
 
-const targetShapeY = 300; 
-const targetShapeY2 = 600; 
+const targetShapeY = 300; // Adjusted Y value for all target shapes
+const targetShapeY2 = 600; // Adjusted Y value for shuffled shapes
 let shuffledCoords;
 let targetShapeCoords;
 let shapes = [];
@@ -39,6 +39,8 @@ function setup() {
 }
 
 function draw() {
+  background(255); // Ensure the background is cleared each frame
+
   if (landscape) {
     imageMode(CORNER);
     image(landscape, 0, 0, w, h);
@@ -69,30 +71,30 @@ function drawTargetShapes(targetShapeCoords) {
       switch (matchedShape.type) {
         case 0:
           fill("red");
-          drawHexagon(targetShapeCoords[i], targetShapeY, 60); // Changed to hexagon
+          drawHexagon(targetShapeCoords[i], targetShapeY, 60); 
           break;
         case 1:
           fill("green");
-          square(targetShapeCoords[i] - 50, targetShapeY - 50, 100); // Increased size
+          square(targetShapeCoords[i] - 50, targetShapeY - 50, 100); 
           break;
         case 2:
           fill("purple");
-          drawEquilateralTriangle(targetShapeCoords[i], targetShapeY, 120); // Increased size
+          drawEquilateralTriangle(targetShapeCoords[i], targetShapeY, 120); 
           break;
         case 3:
           fill("orange");
-          drawDiamond(targetShapeCoords[i], targetShapeY, 120); // Increased size
+          drawDiamond(targetShapeCoords[i], targetShapeY, 120); 
           break;
         case 4:
           fill("blue");
-          circle(targetShapeCoords[i], targetShapeY, 120); // Increased size
+          circle(targetShapeCoords[i], targetShapeY, 120); 
           break;
       }
     } else {
       fill("black");
       switch (i) {
         case 0:
-          drawHexagon(targetShapeCoords[i], targetShapeY, 60); // Default hexagon
+          drawHexagon(targetShapeCoords[i], targetShapeY, 60); 
           break;
         case 1:
           square(targetShapeCoords[i] - 50, targetShapeY - 50, 100);
