@@ -2,6 +2,7 @@ var landscape;
 var w;
 var h;
 
+
 const targetShapeY = 300; // Adjusted Y value for all target shapes
 const targetShapeY2 = 600; // Adjusted Y value for shuffled shapes
 let shuffledCoords;
