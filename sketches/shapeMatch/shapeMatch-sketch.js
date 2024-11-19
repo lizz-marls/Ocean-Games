@@ -39,7 +39,6 @@ function setup() {
 }
 
 function draw() {
-  background(255); // Ensure the background is cleared each frame
 
   if (landscape) {
     imageMode(CORNER);
@@ -177,6 +176,52 @@ function drawDiamond(xc, yc, size) {
     xc - halfSize,
     yc
   );
+}
+
+function mousePressed() {
+  shapes.forEach(shape => {
+
+    if (!shape.matched && dist(mouseX, mouseY, shape.x, shape.y) < 50) {
+      draggedShape = shape;
+    }
+  });
+}
+
+function mouseDragged() {
+  if (draggedShape) {
+    draggedShape.x = mouseX;
+    draggedShape.y = mouseY;
+  }
+}
+
+function mouseReleased() {
+  if (draggedShape) {
+    let targetX = targetShapeCoords[draggedShape.type];
+    let targetY = targetShapeY;
+
+
+    if (dist(draggedShape.x, draggedShape.y, targetX, targetY) < 50) {
+      draggedShape.x = targetX;
+      draggedShape.y = targetY;
+      draggedShape.matched = true;
+    } 
+
+    else {
+
+      draggedShape.x = draggedShape.originalX;
+      draggedShape.y = draggedShape.originalY;
+    }
+
+    draggedShape = null;
+  }
+}
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
 }
 
 function buildHomeButton() {
