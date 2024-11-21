@@ -65,6 +65,11 @@ function drawGame(){
     textSize(48);
     text("Game Over!", width /2, height /2-40);
     text(`Final Score: ${score}`, width / 2, height / 2+40); 
+
+    //build reset button
+    if (!document.getElementById('resetButton')) {
+    buildResetButton(); // Create reset button only if it doesn't already exist
+  }
   }
 
 function spawnBubbles(num){
@@ -133,24 +138,28 @@ function mousePressed(){
 }
 
 function buildResetButton(){
-  let button = createButton('PLAY AGAIN'); //button text
-  button.position((w-200) * 0.5, h * 0.9); //button position on screen
-  button.size(200, 75);  // button size
   
-  //button properties
-  button.style('background-color', 'white'); //button color
-  button.style('border', '3px solid black'); 
-  button.style('border-radius', '10px');  //rounds corners
-  button.style('font-size', '36px') ;
+  let button = createButton('PLAY AGAIN');
+  button.id('resetButton'); // Set an ID for easy access/removal
+  button.position((w - 200) * 0.5, h * 0.9);
+  button.size(200, 75);
+
+  // button properties
+  button.style('background-color', 'white');
+  button.style('border', '3px solid black');
+  button.style('border-radius', '10px');
+  button.style('font-size', '36px');
   button.style('font-weight', 'bold');
-  
-  // redirect home on button click
+
+  // click to reset the game
   button.mousePressed(() => {
-    score=0;
-    drawGame();
-    button.hide();
+    score = 0;
+    gameOver = false; // Change game state back to playing
+    bubbles = [];
+    spawnBubbles(5); // Restart with initial bubbles
+    button.remove(); // Remove the button from the screen
   });
-}
+
 
 function buildHomeButton(){
   
