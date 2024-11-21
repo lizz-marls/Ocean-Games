@@ -138,8 +138,8 @@ function mousePressed() {
 function buildResetButton() {
   let button = createButton('PLAY AGAIN');
   button.id('resetButton'); // Set an ID for easy access/removal
-  button.position((w - 200) * 0.5, h * 0.9);
-  button.size(200, 75);
+  button.position((w - 400) * 0.5, h * 0.9);
+  button.size(400, 75);
 
   // Button properties
   button.style('background-color', 'white');
