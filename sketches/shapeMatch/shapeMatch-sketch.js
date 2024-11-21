@@ -50,6 +50,12 @@ function draw() {
 
   drawTargetShapes(targetShapeCoords);
   drawColoredShapes();
+
+  //check to reset
+  if (allShapesMatched() && !resetButtonVisible) {
+    buildResetButton();
+    resetButtonVisible = true;
+  }
 }
 
 function getTargetShapeCoords() {
@@ -237,5 +243,27 @@ function buildHomeButton() {
 
   button.mousePressed(() => {
     window.location.href = "../../index.html";
+  });
+}
+
+function buildResetButton() {
+  let button = createButton('PLAY AGAIN');
+  button.id('resetButton'); // Set an ID for easy access/removal
+  button.position((w - 400) * 0.5, h * 0.9);
+  button.size(400, 75);
+
+  // Button properties
+  button.style('background-color', 'white');
+  button.style('border', '3px solid black');
+  button.style('border-radius', '10px');
+  button.style('font-size', '36px');
+  button.style('font-weight', 'bold');
+
+  // Click to reset the game
+  button.mousePressed(() => {
+    shuffledCoords = shuffleArray([...targetShapeCoords]);
+    initializeShapes(); // Reset shapes
+    button.remove(); // Remove reset button
+    resetButtonVisible = false; // Hide the reset button
   });
 }
