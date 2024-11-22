@@ -2,13 +2,13 @@ var landscape;
 var w;
 var h;
 
-const targetShapeY = 300;
-const targetShapeY2 = 600;
+
+const targetShapeY = 300; // Adjusted Y value for all target shapes
+const targetShapeY2 = 600; // Adjusted Y value for shuffled shapes
 let shuffledCoords;
 let targetShapeCoords;
 let shapes = [];
 let draggedShape = null;
-let resetButtonVisible = false; // Initialize resetButtonVisible
 
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
@@ -20,6 +20,8 @@ function setup() {
   w = width;
   h = height;
 
+  background(100);
+  
   targetShapeCoords = getTargetShapeCoords();
   shuffledCoords = shuffleArray([...targetShapeCoords]);
 
@@ -38,7 +40,6 @@ function setup() {
 }
 
 function draw() {
-  background(100); // Ensure the background is updated every frame
 
   if (landscape) {
     imageMode(CORNER);
@@ -50,7 +51,6 @@ function draw() {
   drawTargetShapes(targetShapeCoords);
   drawColoredShapes();
 
-  // Check if all shapes are matched
   if (allShapesMatched() && !resetButtonVisible) {
     buildResetButton();
     resetButtonVisible = true;
@@ -186,15 +186,40 @@ function drawDiamond(xc, yc, size) {
 
 function mousePressed() {
   shapes.forEach(shape => {
-    // Check if the shape is clicked
+
     if (!shape.matched && dist(mouseX, mouseY, shape.x, shape.y) < 50) {
       draggedShape = shape;
     }
   });
 }
 
-function allShapesMatched() {
-  return shapes.every(shape => shape.matched);
+function mouseDragged() {
+  if (draggedShape) {
+    draggedShape.x = mouseX;
+    draggedShape.y = mouseY;
+  }
+}
+
+function mouseReleased() {
+  if (draggedShape) {
+    let targetX = targetShapeCoords[draggedShape.type];
+    let targetY = targetShapeY;
+
+
+    if (dist(draggedShape.x, draggedShape.y, targetX, targetY) < 50) {
+      draggedShape.x = targetX;
+      draggedShape.y = targetY;
+      draggedShape.matched = true;
+    } 
+
+    else {
+
+      draggedShape.x = draggedShape.originalX;
+      draggedShape.y = draggedShape.originalY;
+    }
+
+    draggedShape = null;
+  }
 }
 
 function shuffleArray(arr) {
@@ -203,6 +228,10 @@ function shuffleArray(arr) {
     [arr[i], arr[j]] = [arr[j], arr[i]];
   }
   return arr;
+}
+
+function allShapesMatched() {
+  return shapes.every(shape => shape.matched);
 }
 
 function buildHomeButton() {
@@ -222,7 +251,7 @@ function buildHomeButton() {
 
 function buildResetButton() {
   let button = createButton('PLAY AGAIN');
-  button.id('resetButton'); // Set an ID for easy access/removal
+  button.id('resetButton'); 
   button.position((w - 400) * 0.5, h * 0.9);
   button.size(400, 75);
 
