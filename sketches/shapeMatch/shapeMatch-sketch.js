@@ -10,6 +10,8 @@ let targetShapeCoords;
 let shapes = [];
 let draggedShape = null;
 
+let resetButtonVisible = false;
+
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
 }
@@ -21,20 +23,11 @@ function setup() {
   h = height;
 
   background(100);
-  
+
   targetShapeCoords = getTargetShapeCoords();
   shuffledCoords = shuffleArray([...targetShapeCoords]);
 
-  for (let i = 0; i < shuffledCoords.length; i++) {
-    shapes.push({
-      x: shuffledCoords[i],
-      y: targetShapeY2,
-      originalX: shuffledCoords[i],
-      originalY: targetShapeY2,
-      type: i,
-      matched: false,
-    });
-  }
+  initializeShapes(); 
 
   buildHomeButton(); 
 }
@@ -65,6 +58,23 @@ function getTargetShapeCoords() {
   }
   return resultArr;
 }
+
+function initializeShapes() {
+  shapes = []; 
+
+  
+  for (let i = 0; i < shuffledCoords.length; i++) {
+    shapes.push({
+      x: shuffledCoords[i],
+      y: targetShapeY2,
+      originalX: shuffledCoords[i],
+      originalY: targetShapeY2,
+      type: i,
+      matched: false,
+    });
+  }
+}
+
 
 function drawTargetShapes(targetShapeCoords) {
   for (let i = 0; i < targetShapeCoords.length; i++) {
@@ -251,7 +261,7 @@ function buildHomeButton() {
 
 function buildResetButton() {
   let button = createButton('PLAY AGAIN');
-  button.id('resetButton'); 
+  button.id('resetButton');
   button.position((w - 400) * 0.5, h * 0.9);
   button.size(400, 75);
 
@@ -264,24 +274,10 @@ function buildResetButton() {
 
   
   button.mousePressed(() => {
-    
     shuffledCoords = shuffleArray([...targetShapeCoords]);
-    shapes = []; // Clear the existing shapes
-    for (let i = 0; i < shuffledCoords.length; i++) {
-      shapes.push({
-        x: shuffledCoords[i],
-        y: targetShapeY2,
-        originalX: shuffledCoords[i], 
-        originalY: targetShapeY2,
-        type: i,
-        matched: false, 
-
-      });
-    }
-
-    // Remove the reset button after resetting the game
-    button.remove();
-    resetButtonVisible = false;
+    initializeShapes(); // Reset shapes
+    button.remove(); // Remove reset button
+    resetButtonVisible = false; // Hide the reset button
   });
 }
 
