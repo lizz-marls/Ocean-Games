@@ -2,13 +2,13 @@ var landscape;
 var w;
 var h;
 
-
-const targetShapeY = 300; s
-const targetShapeY2 = 600; 
+const targetShapeY = 300;
+const targetShapeY2 = 600;
 let shuffledCoords;
 let targetShapeCoords;
 let shapes = [];
 let draggedShape = null;
+let resetButtonVisible = false; // Initialize resetButtonVisible
 
 function preload() {
   landscape = loadImage("../../assets/gameBackground1.png");
@@ -20,8 +20,6 @@ function setup() {
   w = width;
   h = height;
 
-  background(100);
-  
   targetShapeCoords = getTargetShapeCoords();
   shuffledCoords = shuffleArray([...targetShapeCoords]);
 
@@ -40,7 +38,7 @@ function setup() {
 }
 
 function draw() {
-  
+  background(100); // Ensure the background is updated every frame
 
   if (landscape) {
     imageMode(CORNER);
@@ -52,7 +50,7 @@ function draw() {
   drawTargetShapes(targetShapeCoords);
   drawColoredShapes();
 
-  //check to reset
+  // Check if all shapes are matched
   if (allShapesMatched() && !resetButtonVisible) {
     buildResetButton();
     resetButtonVisible = true;
@@ -188,14 +186,16 @@ function drawDiamond(xc, yc, size) {
 
 function mousePressed() {
   shapes.forEach(shape => {
-
+    // Check if the shape is clicked
     if (!shape.matched && dist(mouseX, mouseY, shape.x, shape.y) < 50) {
       draggedShape = shape;
     }
   });
 }
 
-
+function allShapesMatched() {
+  return shapes.every(shape => shape.matched);
+}
 
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -236,8 +236,22 @@ function buildResetButton() {
   // Click to reset the game
   button.mousePressed(() => {
     shuffledCoords = shuffleArray([...targetShapeCoords]);
-    initializeShapes(); // Reset shapes
+    shapes = []; // Clear the existing shapes
+
+    // Repopulate shapes array with new positions
+    for (let i = 0; i < shuffledCoords.length; i++) {
+      shapes.push({
+        x: shuffledCoords[i],
+        y: targetShapeY2,
+        originalX: shuffledCoords[i],
+        originalY: targetShapeY2,
+        type: i,
+        matched: false,
+      });
+    }
+
     button.remove(); // Remove reset button
     resetButtonVisible = false; // Hide the reset button
   });
 }
+
