@@ -262,25 +262,27 @@ function buildResetButton() {
   button.style('font-size', '36px');
   button.style('font-weight', 'bold');
 
-  // Click to reset the game
+  
   button.mousePressed(() => {
+    
     shuffledCoords = shuffleArray([...targetShapeCoords]);
     shapes = []; // Clear the existing shapes
-
-    // Repopulate shapes array with new positions
     for (let i = 0; i < shuffledCoords.length; i++) {
       shapes.push({
         x: shuffledCoords[i],
         y: targetShapeY2,
-        originalX: shuffledCoords[i],
+        originalX: shuffledCoords[i], 
         originalY: targetShapeY2,
         type: i,
-        matched: false,
+        matched: false, 
+
       });
     }
 
-    button.remove(); // Remove reset button
-    resetButtonVisible = false; // Hide the reset button
+    // Remove the reset button after resetting the game
+    button.remove();
+    resetButtonVisible = false;
   });
+}
 }
 
