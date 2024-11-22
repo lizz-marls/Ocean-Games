@@ -284,5 +284,5 @@ function buildResetButton() {
     resetButtonVisible = false;
   });
 }
-}
+
 
