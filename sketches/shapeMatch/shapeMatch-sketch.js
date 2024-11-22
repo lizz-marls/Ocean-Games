@@ -3,8 +3,8 @@ var w;
 var h;
 
 
-const targetShapeY = 300; // Adjusted Y value for all target shapes
-const targetShapeY2 = 600; // Adjusted Y value for shuffled shapes
+const targetShapeY = 300; s
+const targetShapeY2 = 600; 
 let shuffledCoords;
 let targetShapeCoords;
 let shapes = [];
@@ -40,6 +40,7 @@ function setup() {
 }
 
 function draw() {
+  background(255)
 
   if (landscape) {
     imageMode(CORNER);
@@ -194,34 +195,7 @@ function mousePressed() {
   });
 }
 
-function mouseDragged() {
-  if (draggedShape) {
-    draggedShape.x = mouseX;
-    draggedShape.y = mouseY;
-  }
-}
 
-function mouseReleased() {
-  if (draggedShape) {
-    let targetX = targetShapeCoords[draggedShape.type];
-    let targetY = targetShapeY;
-
-
-    if (dist(draggedShape.x, draggedShape.y, targetX, targetY) < 50) {
-      draggedShape.x = targetX;
-      draggedShape.y = targetY;
-      draggedShape.matched = true;
-    } 
-
-    else {
-
-      draggedShape.x = draggedShape.originalX;
-      draggedShape.y = draggedShape.originalY;
-    }
-
-    draggedShape = null;
-  }
-}
 
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
