@@ -262,7 +262,7 @@ function buildHomeButton() {
 function buildResetButton() {
   let button = createButton('PLAY AGAIN');
   button.id('resetButton');
-  button.position((w - 400) * 0.5, h * 0.9);
+  button.position((w - 400) * 0.5, h * 0.7);
   button.size(400, 75);
 
   // Button properties
