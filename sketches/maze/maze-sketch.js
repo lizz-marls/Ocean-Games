@@ -306,7 +306,7 @@ function displayGameOver() {
   background(0);
   fill(255);
   textSize(56);
-  text("Game Over!", (width / 2)-50, (height / 2) - 40);
+  text("Game Over!", (width / 2)-100, (height / 2) - 40);
 
   // Build reset button
   if (!document.getElementById('resetButton')) {
@@ -320,6 +320,7 @@ function resetMaze(){
   startPressed = false;
   endPressed = false;
   gameOver=false;
+  n = floor(random(3) + 1);
   
   
   // Display background image if loaded
