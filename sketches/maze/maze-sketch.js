@@ -36,8 +36,8 @@ function setup() {
   }
   
   // Generate a random number for maze selection
-  //n = floor(random(3) + 1);
-  n=3;
+  n = floor(random(3) + 1);
+  //n=3;
 
   // Select the maze to build
   //only 1 maze right now, but option to put on others
@@ -305,7 +305,7 @@ function displayGameOver() {
   
   background(0);
   fill(255);
-  textSize(48);
+  textSize(56);
   text("Game Over!", (width / 2)-50, (height / 2) - 40);
 
   // Build reset button
