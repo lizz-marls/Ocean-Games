@@ -306,7 +306,7 @@ function displayGameOver() {
   background(0);
   fill(255);
   textSize(48);
-  text("Game Over!", width / 2, height / 2 - 40);
+  text("Game Over!", (width / 2)-50, (height / 2) - 40);
 
   // Build reset button
   if (!document.getElementById('resetButton')) {
@@ -500,16 +500,16 @@ function buildResetButton() {
 
 function buildHomeButton() {
   // Create button
-  let button = createButton("HOME");
-  button.position((w - 200) * 0.5, h * 0.9);
-  button.size(200, 75);
+  let button = createButton('HOME');
+  button.position(w - 155, 5);
+  button.size(150, 75);
 
   // Button properties
-  button.style("background-color", "white");
-  button.style("border", "3px solid black");
-  button.style("border-radius", "10px");
-  button.style("font-size", "36px");
-  button.style("font-weight", "bold");
+  button.style('background-color', 'white');
+  button.style('border', '3px solid black');
+  button.style('border-radius', '10px');
+  button.style('font-size', '36px');
+  button.style('font-weight', 'bold');
 
   // Redirect home on button click
   button.mousePressed(() => {
