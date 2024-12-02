@@ -494,8 +494,7 @@ function buildResetButton() {
 
   // Click to reset the game
   button.mousePressed(() => {
-    n = floor(random(3) + 1);
-    resetMaze();
+    setup();
     button.remove(); // Remove the button from the screen
   });
 }
