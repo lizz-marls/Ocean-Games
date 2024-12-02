@@ -306,7 +306,7 @@ function displayGameOver() {
   background(0);
   fill(255);
   textSize(56);
-  text("Game Over!", (width / 2)-100, (height / 2) - 40);
+  text("Game Over!", (width / 2)-150, (height / 2) - 40);
 
   // Build reset button
   if (!document.getElementById('resetButton')) {
@@ -320,7 +320,7 @@ function resetMaze(){
   startPressed = false;
   endPressed = false;
   gameOver=false;
-  n = floor(random(3) + 1);
+  
   
   
   // Display background image if loaded
@@ -494,6 +494,7 @@ function buildResetButton() {
 
   // Click to reset the game
   button.mousePressed(() => {
+    n = floor(random(3) + 1);
     resetMaze();
     button.remove(); // Remove the button from the screen
   });
